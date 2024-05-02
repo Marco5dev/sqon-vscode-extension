@@ -5,7 +5,7 @@
       "@enity ${1:enityname} {",
       "  @description \"$2\",",
       "  @schema {",
-      "    ${3:item}: ${4:type},",
+      "    ${3:item}: ${4:type} { ${5:config}: ${6:value}; },,",
       "  },",
       "  @enteries {",
       "    ($0),",
@@ -23,7 +23,7 @@
     "prefix": ["schema"],
     "body": [
       "@schema {",
-      "  ${1:item}: ${2:type} { ${3:config}: ${4:value}, },$0",
+      "  ${1:item}: ${2:type} { ${3:config}: ${4:value}; },$0",
       "},"
     ],
     "description": "Create a new Schema"

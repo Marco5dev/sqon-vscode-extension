@@ -1,0 +1,9 @@
+@enity name {
+  @description "description",
+  @schema {
+    id: number { max: 255; min: 15; defualt: 155; } ,
+  },
+  @enteries {
+    (6521321),
+  },
+};
