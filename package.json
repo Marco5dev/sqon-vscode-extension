@@ -3,8 +3,17 @@
   "displayName": "SQON (Structure Query Object Notation)",
   "description": "SQON is a custom database format designed to provide a structured and intuitive representation of relational data. Inspired by the simplicity of JSON and the structure of SQL, SQON combines familiar concepts from both to offer a versatile and expressive way of defining database schemas and data.",
   "version": "1.0.0",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.88.0"
+  },
+  "bugs": {
+    "url": "https://github.com/jedi-studio/SQON.vscode/issues"
+  },
+  "homepage": "https://versedb.jedi-studio.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jedi-studio/SQON.vscode.git"
   },
   "categories": [
     "Programming Languages",
