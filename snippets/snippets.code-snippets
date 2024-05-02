@@ -1,0 +1,41 @@
+{
+  "@enity": {
+    "prefix": ["enity"],
+    "body": [
+      "@enity ${1:enityname} {",
+      "  @description \"$2\",",
+      "  @schema {",
+      "    ${3:item}: ${4:type},",
+      "  },",
+      "  @enteries {",
+      "    ($0),",
+      "  },",
+      "};"
+    ],
+    "description": "Create a new enity"
+  },
+  "@description": {
+    "prefix": ["description"],
+    "body": ["@description \"${1:description}\",$0"],
+    "description": "Create a new description"
+  },
+  "@schema": {
+    "prefix": ["schema"],
+    "body": [
+      "@schema {",
+      "  ${1:item}: ${2:type} { ${3:config}: ${4:value}, },$0",
+      "},"
+    ],
+    "description": "Create a new Schema"
+  },
+  "@enteries": {
+    "prefix": ["enteries"],
+    "body": [
+      "@enteries {",
+      "  (\"$1\",$2),",
+      "  $0",
+      "},"
+    ],
+    "description": "Add a new enteries"
+  },
+}

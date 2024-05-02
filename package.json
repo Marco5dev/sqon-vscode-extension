@@ -1,0 +1,36 @@
+{
+  "name": "sqon",
+  "displayName": "SQON (Structure Query Object Notation)",
+  "description": "SQON is a custom database format designed to provide a structured and intuitive representation of relational data. Inspired by the simplicity of JSON and the structure of SQL, SQON combines familiar concepts from both to offer a versatile and expressive way of defining database schemas and data.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "sqon",
+      "aliases": ["Structure Query Object Notation", "sqon"],
+      "extensions": [".sqon"],
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./icons/sqon-light.svg",
+        "dark": "./icons/sqon-dark.svg"
+      }
+    }],
+    "grammars": [{
+      "language": "sqon",
+      "scopeName": "*.sqon",
+      "path": "./syntaxes/sqon.tmLanguage.json"
+    }],
+    "snippets": [
+      {
+        "language": "sqon",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "name": "SQON",
+  "scopeName": "*.sqon",
+  "fileTypes": ["sqon"],
+  "patterns": [
+    {
+      "include": "#enity"
+    },
+    {
+      "begin": "--",
+      "end": "--",
+      "captures": {
+        "0": {
+          "name": "comment.line.double-dash.sqon"
+        }
+      },
+      "name": "comment.block.double-dash.sqon",
+      "patterns": [
+        {
+          "match": "$",
+          "name": "invalid.illegal.comment.block.double-dash.sqon"
+        }
+      ]
+    }
+  ],
+  "repository": {
+    "enity": {
+      "begin": "@enity",
+      "end": ";",
+      "beginCaptures": {
+        "0": {
+          "name": "keyword.control.enity.sqon"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "keyword.control.enity.sqon"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#description"
+        },
+        {
+          "include": "#schema"
+        },
+        {
+          "include": "#enteries"
+        }
+      ]
+    },
+    "schema": {
+      "begin": "@schema",
+      "end": "},",
+      "beginCaptures": {
+        "0": {
+          "name": "keyword.control.schema.sqon"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "keyword.control.schema.sqon"
+        }
+      },
+      "patterns": [
+        {
+          "begin": "\\b(?<=\\b)([\\w]+)(?=:)",
+          "end": ",",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.colon.schema.sqon"
+            }
+          },
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.brace.schema.sqon"
+            }
+          },
+          "patterns": [
+            {
+              "match": "\\b(string|number|boolean|null|enum)\\b",
+              "name": "storage.type.schema.sqon"
+            },
+            {
+              "begin": "\\b(?<=\\b)(min|max|minLength|maxLength|defualt)(?=:)",
+              "end": ";",
+              "beginCaptures": {
+                "2": {
+                  "name": "punctuation.colon.schema.sqon"
+                }
+              },
+              "endCaptures": {
+                "2": {
+                  "name": "punctuation.brace.schema.sqon"
+                }
+              },
+              "name": "storage.type.schema.sqon",
+              "patterns": [
+                {
+                  "match": "\\d+(\\.\\d+)?",
+                  "name": "constant.numeric.schema.sqon"
+                },
+                {
+                  "match": "\".*?\"",
+                  "name": "string.quoted.schema.sqon"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "enteries": {
+      "begin": "@enteries",
+      "end": "},",
+      "beginCaptures": {
+        "0": {
+          "name": "keyword.control.enteries.sqon"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "keyword.control.enteries.sqon"
+        }
+      },
+      "patterns": [
+        {
+          "begin": "\\(",
+          "end": "\\)",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control.braces.enteries.sqon"
+            }
+          },
+          "endCaptures": {
+            "1": {
+              "name": "keyword.control.braces.enteries.sqon"
+            }
+          },
+          "patterns": [
+            {
+              "begin": "\"",
+              "end": "\"",
+              "beginCaptures": {
+                "2": {
+                  "name": "quoted.control.enteries.sqon"
+                }
+              },
+              "endCaptures": {
+                "2": {
+                  "name": "quoted.control.enteries.sqon"
+                }
+              },
+              "name": "string.quoted.enteries.sqon"
+            },
+            {
+              "match": "\\bnull\\b",
+              "name": "storage.type.schema.sqon"
+            },
+            {
+              "match": "\\d+(\\.\\d+)?",
+              "name": "constant.numeric.schema.sqon"
+            },
+            {
+              "match": "\\b(true|false)\\b",
+              "name": "constant.language.boolean.schema.sqon"
+            },
+            {
+              "match": "^enum\\s+([\\w]+)\\s+{([^}]+)}$",
+              "captures": {
+                "1": {
+                  "name": "enum.enteries.sqon"
+                },
+                "2": {
+                  "name": "enum.name.enteries.sqon"
+                },
+                "3": {
+                  "patterns": [
+                    {
+                      "match": "([\\w]+)",
+                      "name": "enum.member.enteries.sqon"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "description": {
+      "begin": "@description",
+      "end": ",",
+      "beginCaptures": {
+        "0": {
+          "name": "keyword.control.description.sqon"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "keyword.control.description.sqon"
+        }
+      },
+      "patterns": [
+        {
+          "match": "\".*?\"",
+          "name": "string.quoted.description.sqon"
+        }
+      ]
+    }
+  }
+}
